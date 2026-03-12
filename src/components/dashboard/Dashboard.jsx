@@ -50,7 +50,7 @@ export default function Dashboard({ user, onLogout }) {
         {/* Page title */}
         <div>
           <h1 className="text-2xl font-bold text-gray-800">School Dashboard</h1>
-          <p className="text-gray-500 text-sm">Overview of enrollment, courses, and attendance</p>
+          
         </div>
 
         {/* Stat cards */}
