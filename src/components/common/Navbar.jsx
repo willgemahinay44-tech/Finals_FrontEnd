@@ -21,7 +21,7 @@ export default function Navbar({ user, onLogout }) {
           </svg>
         </div>
         <div>
-          <h1 className="font-bold text-lg leading-tight">SchoolDash</h1>
+          <h1 className="font-bold text-lg leading-tight">Willgo School Dashboard</h1>
           
         </div>
       </div>
