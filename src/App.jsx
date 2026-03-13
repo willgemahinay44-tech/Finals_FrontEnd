@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import Login from "./components/auth/Login";
 import Dashboard from "./components/dashboard/Dashboard";
+import ProgramPage from "./components/ProgramPage";
+import SubjectPage from "./components/SubjectPage";
 import ErrorBoundary from "./components/common/ErrorBoundary";
 
 function AppContent() {
@@ -34,15 +36,23 @@ function AppContent() {
   return (
     <ErrorBoundary>
       <Routes>
-          <Route
-            path="/login"
-            element={!token ? <Login onLogin={handleLogin} /> : <Navigate to="/dashboard" />}
-          />
-          <Route
-            path="/dashboard"
-            element={token ? <Dashboard user={user} onLogout={handleLogout} /> : <Navigate to="/login" />}
-          />
-          <Route path="*" element={<Navigate to={token ? "/dashboard" : "/login"} />} />
+        <Route
+          path="/login"
+          element={!token ? <Login onLogin={handleLogin} /> : <Navigate to="/dashboard" />}
+        />
+        <Route
+          path="/dashboard"
+          element={token ? <Dashboard user={user} onLogout={handleLogout} /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/programs"
+          element={token ? <ProgramPage user={user} onLogout={handleLogout} /> : <Navigate to="/login" />}
+        />
+        <Route
+          path="/subjects"
+          element={token ? <SubjectPage user={user} onLogout={handleLogout} /> : <Navigate to="/login" />}
+        />
+        <Route path="*" element={<Navigate to={token ? "/dashboard" : "/login"} />} />
       </Routes>
     </ErrorBoundary>
   );

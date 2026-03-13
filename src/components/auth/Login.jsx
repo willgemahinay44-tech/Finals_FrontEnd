@@ -22,14 +22,16 @@ export default function Login({ onLogin }) {
       const res = await authService.login(email, password);
       onLogin(res.data);
     } catch (err) {
-      // Demo fallback when backend is not running
-      const isDemo = email === "admin@school.edu" && password === "password123";
-      if (isDemo) {
+      // Always allow main demo admin user (frontend-only account)
+      const isDemoAdmin = email === "admin@school.edu" && password === "password123";
+
+      if (isDemoAdmin) {
         onLogin({
           token: "demo-token",
-          user: { id: 1, name: "Admin", email: "admin@school.edu" },
+          user: { id: 1, name: "Admin User", email: "admin@school.edu" },
         });
       } else {
+        // Otherwise show backend error (if any)
         setError(err.response?.data?.message || "Login failed. Please try again.");
       }
     } finally {
@@ -38,13 +40,13 @@ export default function Login({ onLogin }) {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#4a0f16] via-[#7f1d1d] to-[#450a0a] flex items-center justify-center px-4">
-      <div className="w-full max-w-md bg-white/95 rounded-2xl shadow-2xl border border-[#7f1d1d]/30 p-8">
+    <div className="min-h-screen bg-[#2C1B7D] flex items-center justify-center px-4">
+      <div className="w-full max-w-md bg-white/95 rounded-2xl shadow-2xl border border-white/30 p-8">
         <div className="text-center mb-8">
-          <div className="w-12 h-12 rounded-full bg-[#7f1d1d] mx-auto mb-3 flex items-center justify-center text-white text-lg font-bold">
-            SD
+          <div className="w-12 h-12 rounded-full bg-[#2C1B7D] mx-auto mb-3 flex items-center justify-center text-white text-lg font-bold">
+            KNP
           </div>
-          <h1 className="text-2xl font-semibold text-[#7f1d1d]">SchoolDash</h1>
+          <h1 className="text-2xl font-semibold text-[#2C1B7D]">LOGIN TO YOUR ACCOUNT</h1>
           <p className="text-xs text-gray-500 mt-1">Admin Login</p>
         </div>
 
@@ -62,7 +64,7 @@ export default function Login({ onLogin }) {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="admin@school.edu"
-              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#b91c1c] focus:border-[#b91c1c]"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C1B7D] focus:border-[#2C1B7D]"
             />
           </div>
 
@@ -74,23 +76,23 @@ export default function Login({ onLogin }) {
               onChange={(e) => setPassword(e.target.value)}
               placeholder="password123"
               onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}
-              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#b91c1c] focus:border-[#b91c1c]"
+              className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C1B7D] focus:border-[#2C1B7D]"
             />
           </div>
 
           <button
             type="submit"
             disabled={loading}
-            className="mt-2 w-full rounded-lg bg-[#7f1d1d] px-3 py-2 text-sm font-semibold text-white hover:bg-[#991b1b] transition disabled:bg-[#fecaca] disabled:text-[#7f1d1d]"
+            className="mt-2 w-full rounded-lg bg-[#2C1B7D] px-3 py-2 text-sm font-semibold text-white hover:bg-[#241564] transition disabled:bg-[#d8d3f0] disabled:text-[#2C1B7D]"
           >
             {loading ? "Signing in..." : "Sign in"}
           </button>
         </form>
 
-        <p className="mt-4 text-center text-xs text-gray-400">
-          Demo: <span className="font-medium text-[#7f1d1d]">admin@school.edu</span> /{" "}
-          <span className="font-medium text-[#7f1d1d]">password123</span>
-        </p>
+        <div className="mt-4 text-center text-xs text-gray-400">
+          Demo: <span className="font-medium text-[#2C1B7D]">admin@school.edu</span> /{" "}
+          <span className="font-medium text-[#2C1B7D]">password123</span>
+        </div>
       </div>
     </div>
   );

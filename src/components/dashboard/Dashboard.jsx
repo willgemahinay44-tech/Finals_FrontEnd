@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Navbar from "../common/Navbar";
-import { SkeletonCard, LoadingSpinner } from "../common/LoadingSpinner";
+import { SkeletonCard } from "../common/LoadingSpinner";
 import { ErrorBoundary } from "../common/LoadingSpinner";
 import EnrollmentChart from "./EnrollmentChart";
 import CourseDistributionChart from "./CourseDistributionChart";
@@ -43,21 +43,26 @@ export default function Dashboard({ user, onLogout }) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-[#E8DAF2] flex">
       <Navbar user={user} onLogout={onLogout} />
 
-      <div className="max-w-7xl mx-auto px-4 py-6 space-y-6">
+      <main className="flex-1 px-6 py-6 space-y-6">
         {/* Page title */}
         <div>
           <h1 className="text-2xl font-bold text-gray-800">School Dashboard</h1>
-          
+          <p className="text-gray-500 text-sm">
+            Overview of programs, subjects, and key academic indicators
+          </p>
         </div>
 
         {/* Stat cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {loadingStats ? (
             <>
-              <SkeletonCard /><SkeletonCard /><SkeletonCard /><SkeletonCard />
+              <SkeletonCard />
+              <SkeletonCard />
+              <SkeletonCard />
+              <SkeletonCard />
             </>
           ) : (
             <>
@@ -71,7 +76,7 @@ export default function Dashboard({ user, onLogout }) {
               <StatCard
                 title="Total Courses"
                 value={stats?.total_courses}
-                subtitle="Across all departments"
+                subtitle="Across all programs"
                 icon="📚"
                 color="bg-green-100"
               />
@@ -117,9 +122,9 @@ export default function Dashboard({ user, onLogout }) {
 
         {/* Footer */}
         <div className="text-center text-gray-400 text-xs pb-4">
-          IT15/L — Integrative Programming Final Project | React + Laravel + MySQL
+          IT15/L — Integrative Programming · Frontend modules using mock data
         </div>
-      </div>
+      </main>
     </div>
   );
 }
