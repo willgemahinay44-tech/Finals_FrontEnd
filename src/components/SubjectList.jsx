@@ -32,7 +32,7 @@ export default function SubjectList() {
       <div className="flex items-center justify-between gap-3">
         <div>
           <h2 className="text-sm font-semibold text-gray-800">Subject Offerings</h2>
-          <p className="text-xs text-gray-500">View subjects by term, program, and pre-requisites.</p>
+         
         </div>
       </div>
 

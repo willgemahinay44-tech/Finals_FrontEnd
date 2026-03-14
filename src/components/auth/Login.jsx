@@ -43,9 +43,11 @@ export default function Login({ onLogin }) {
     <div className="min-h-screen bg-[#2C1B7D] flex items-center justify-center px-4">
       <div className="w-full max-w-md bg-white/95 rounded-2xl shadow-2xl border border-white/30 p-8">
         <div className="text-center mb-8">
-          <div className="w-12 h-12 rounded-full bg-[#2C1B7D] mx-auto mb-3 flex items-center justify-center text-white text-lg font-bold">
-            KNP
-          </div>
+          <img
+            src="/knp-emblem.png"
+            alt="Kolehiyo ng Pantukan"
+            className="w-48 h-48 mx-auto mb-3 object-contain"
+          />
           <h1 className="text-2xl font-semibold text-[#2C1B7D]">LOGIN TO YOUR ACCOUNT</h1>
           <p className="text-xs text-gray-500 mt-1">Admin Login</p>
         </div>
@@ -63,7 +65,7 @@ export default function Login({ onLogin }) {
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@school.edu"
+              placeholder="@school.edu"
               className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C1B7D] focus:border-[#2C1B7D]"
             />
           </div>
@@ -74,7 +76,7 @@ export default function Login({ onLogin }) {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="password123"
+              placeholder="passworrd"
               onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}
               className="w-full rounded-lg border border-gray-300 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-[#2C1B7D] focus:border-[#2C1B7D]"
             />

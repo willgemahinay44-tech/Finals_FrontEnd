@@ -25,7 +25,7 @@ export default function EnrollmentChart() {
   return (
     <div className="bg-white rounded-xl shadow p-6">
       <h2 className="text-lg font-semibold text-gray-800 mb-1">Monthly Enrollment Trends</h2>
-      <p className="text-gray-500 text-sm mb-4">Number of students enrolled per month (2024)</p>
+      <p className="text-gray-500 text-sm mb-4">Number of students enrolled per month (2026)</p>
       {loading ? (
         <LoadingSpinner text="Loading enrollment data..." />
       ) : error ? (

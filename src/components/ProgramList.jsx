@@ -26,7 +26,7 @@ export default function ProgramList() {
       <div className="flex items-center justify-between gap-3">
         <div>
           <h2 className="text-sm font-semibold text-gray-800">Program Offerings</h2>
-          <p className="text-xs text-gray-500">Browse all programs with status and type filters.</p>
+          
         </div>
       </div>
 

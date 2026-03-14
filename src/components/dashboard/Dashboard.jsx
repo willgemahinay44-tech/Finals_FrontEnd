@@ -50,9 +50,7 @@ export default function Dashboard({ user, onLogout }) {
         {/* Page title */}
         <div>
           <h1 className="text-2xl font-bold text-gray-800">School Dashboard</h1>
-          <p className="text-gray-500 text-sm">
-            Overview of programs, subjects, and key academic indicators
-          </p>
+          
         </div>
 
         {/* Stat cards */}
@@ -83,7 +81,7 @@ export default function Dashboard({ user, onLogout }) {
               <StatCard
                 title="School Days"
                 value={stats?.total_school_days}
-                subtitle="Regular class days in 2024"
+                subtitle="Regular class days in 2026  "
                 icon="📅"
                 color="bg-yellow-100"
               />
@@ -122,7 +120,7 @@ export default function Dashboard({ user, onLogout }) {
 
         {/* Footer */}
         <div className="text-center text-gray-400 text-xs pb-4">
-          IT15/L — Integrative Programming · Frontend modules using mock data
+          IT15/L — Integrative Programming 
         </div>
       </main>
     </div>
